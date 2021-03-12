@@ -1,0 +1,11 @@
+{
+  "name": "simplypark_api",
+  "version": "1.0.0",
+  "description": "API for SimplyPark App",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nan Hang Lim",
+  "license": "ISC"
+}
