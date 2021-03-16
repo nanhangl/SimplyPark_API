@@ -38,6 +38,7 @@ module.exports = (req, res) => {
       }
     })
   }
-  
-  res.status(200).send(exampleRes);
+  axios.get(`${base_url}`).then(response => {
+  res.status(200).send(response);
+  })
 }
