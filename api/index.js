@@ -7,6 +7,7 @@ module.exports = (req, res) => {
   
   var tenMinIntervalData = [];
   var hourIntervalData = [];
+  var exampleRes = [];
   
   const currentTime = new Date() / 1000;
   
@@ -14,6 +15,7 @@ module.exports = (req, res) => {
     const intervalTime = new Date(currentTime - (600*interval));
     axios.get(`${base_url}?date_time=${intervalTime.getFullYear()}-${(intervalTime.getMonth()+1).toString().padStart(2, '0')}-${intervalTime.getDate().toString().padStart(2, '0')}T${intervalTime.getHours().toString().padStart(2, '0')}:${intervalTime.getMinutes().toString().padStart(2, '0')}:${intervalTime.getSeconds().toString().padStart(2, '0')}`)
     .then(function (response) {
+      exampleRes.push(response);
       const carpark_data = response.data.items[0].carpark_data;
       for (var item in carpark_data) {
         if (carpark_data[item].carpark_number == carParkNo) {
@@ -36,5 +38,5 @@ module.exports = (req, res) => {
     })
   }
   
-  res.status(200).send([tenMinIntervalData, hourIntervalData]);
+  res.status(200).send(exampleRes);
 }
