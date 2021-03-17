@@ -1,7 +1,7 @@
 var moment = require('moment-timezone');
 var axios = require('axios');
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   const carparkno = req.query.carparkno;
   const type = req.query.type;
   const base_url = "https://api.data.gov.sg/v1/transport/carpark-availability";
